@@ -20,6 +20,8 @@ createApp({
                     done: false
                 },
             ],
+            lastId: 3,
+            todoText: ''
         }
     },
     methods: {
@@ -36,5 +38,9 @@ createApp({
             this.tasks.unshift(newTask)
             this.todoText=''
         },
+        markAsDone(index){
+            // obj.done = !obj.done
+            this.tasks[index].done = !this.tasks[index].done
+        }
     }
 }).mount('#app');

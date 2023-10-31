@@ -19,17 +19,21 @@
         <div class="container">
             <header class="p-3 text-center">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS21QQs3kWvFjA1iunhwKB0DbaEnUCU9uBKhNG1yxY0&s" alt="Boolean">
+                <div class="d-flex justify-content-center align-items-center my-3">
+                    <input type="text" class="form-control w-50 mx-3" v-model="todoText" @keyup.enter="addTask">
+                    <button class="btn btn-info" @click="addTask">Add Task</button>
+                </div>
             </header>
             <main>
                 <ul class="list-group" v-if="tasks.length > 0">
                     <li class="list-group-item list-group-item-action d-flex justify-content-between" v-for="(todo, index) in tasks" :key="index">
-                        <span :class="{'done': todo.done}">{{todo.text}}</span>
+                        <span :class="{'done': todo.done}" @click="markAsDone(index)" style="cursor: pointer;">{{todo.text}}</span>
                         <!-- @click="todo.done === ! todo.done -->
                         <i class="fas fa-trash" style="cursor: pointer;" @click="removeTask(index)"></i>
                     </li>                    
                 </ul>
                 <div v-else>
-                    <h3>Non hai task</h3>
+                    <h3 class="bg-body-tertiary text-center fw-bold py-3">Non hai task</h3>
                 </div>
             </main>
         </div>
