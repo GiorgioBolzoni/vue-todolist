@@ -1,0 +1,9 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+header img{
+    width: 300px;
+}
+.done{
+    text-decoration: line-through;
+}
