@@ -16,7 +16,21 @@
 <body>
 
     <div id="app">
-        
+        <div class="container">
+            <header class="p-3 text-center">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS21QQs3kWvFjA1iunhwKB0DbaEnUCU9uBKhNG1yxY0&s" alt="Boolean">
+            </header>
+            <main>
+                <ul class="list-group" v-if="tasks.length > 0">
+                    <li class="list-group-item list-group-item-action d-flex justify-content-between" v-for="(todo, index) in tasks" :key="index">
+                        <span :class="{'done': todo.done}">{{todo.text}}</span>
+                        <!-- @click="todo.done === ! todo.done -->
+                        <i class="fas fa-trash" style="cursor: pointer;"></i>
+                    </li>                    
+                </ul>
+                
+            </main>
+        </div>
     </div>
 
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
